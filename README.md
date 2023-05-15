@@ -23,4 +23,5 @@
 - Simply just by closing the application and delete it.
 
 
-**Video:** https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/79108f58-75f3-485b-9bfe-c2f2a98e348f
+**Video:** 
+https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/79108f58-75f3-485b-9bfe-c2f2a98e348f
