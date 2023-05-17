@@ -4,6 +4,26 @@
 #include <vector>
 #include <thread>
 
+#define RST  "\x1B[0m"
+#define KRED  "\x1B[31m"
+#define KGRN  "\x1B[32m"
+#define KYEL  "\x1B[33m"
+#define KBLU  "\x1B[34m"
+#define KMAG  "\x1B[35m"
+#define KCYN  "\x1B[36m"
+#define KWHT  "\x1B[37m"
+
+#define FRED(x) KRED x RST
+#define FGRN(x) KGRN x RST
+#define FYEL(x) KYEL x RST
+#define FBLU(x) KBLU x RST
+#define FMAG(x) KMAG x RST
+#define FCYN(x) KCYN x RST
+#define FWHT(x) KWHT x RST
+
+#define BOLD(x) "\x1B[1m" x RST
+#define UNDL(x) "\x1B[4m" x RST
+
 HWND robloxHWND;
 bool isEnabled = false;
 
@@ -38,9 +58,52 @@ std::string getWindowTitle(HWND handle)
     return "NULL";
 }
 
+void fixCursor(HWND handle)
+{
+    POINT p;
+    if (GetCursorPos(&p))
+    {
+        if (ScreenToClient(handle, &p))
+        {
+            RECT rect = { NULL };
+            if (GetWindowRect(robloxHWND, &rect)) {
+                int sizeX = (rect.right - rect.left);
+                int sizeY = (rect.bottom - rect.top);
+                
+                int centerX = (rect.right - rect.left) / 2;
+                int centerY = (rect.bottom - rect.top) / 2;
+
+                POINT realP;
+                if (GetCursorPos(&realP))
+                {
+                    // Don't judge this :(
+                    if (p.x < 30)
+                    {
+                        SetCursorPos(rect.left + 100, realP.y);
+                    }
+                    else if (p.x > sizeX - 40)
+                    {
+                        SetCursorPos(rect.right - 100, realP.y);
+                    }
+                    else if (p.y < 70)
+                    {
+                        SetCursorPos(realP.x, rect.top + 100);
+                    }
+                    else if (p.y > sizeY - 40)
+                    {
+                        SetCursorPos(realP.x, rect.bottom - 100);
+                    }
+                }
+            }
+        }
+    }
+}
+
 void init()
 {
     // FindWindow is so fucked because it has none for this so i had to use this method <3
+    std::cout << KRED;
+    std::cout << "Please open Microsoft Roblox Client and click somewhere.";
     while (true)
     {
         HWND currentHWND = GetForegroundWindow();
@@ -51,13 +114,9 @@ void init()
             {
                 robloxHWND = currentHWND;
                 system("cls");
-                std::cout << "Initialized!\nRoblox-HWND: " << currentHWND;
+                std::cout << KMAG;
+                std::cout << "Initialized!\nRoblox-Handle: " << currentHWND;
                 break;
-            }
-            else
-            {
-                system("cls");
-                std::cout << "Please open Microsoft Roblox Client and click somewhere.";
             }
         }
 
@@ -66,24 +125,24 @@ void init()
 
     Sleep(1000);
     system("cls");
-    std::cout << "Keybind: INSERT" << std::endl;
-    std::cout << "Enabled: " << (isEnabled ? "Enabled" : "Disabled");
+    std::cout << KBLU;
+    std::cout << BOLD("Roblox-HWND: ") << robloxHWND << std::endl;
+    std::cout << KYEL;
+    std::cout << BOLD("Keybind: ") << "INSERT" << std::endl;
+    std::cout << KCYN;
+    std::cout << BOLD("Enabled: ") << (isEnabled ? "Enabled" : "Disabled");
 }
 
 void check()
 {
     while (true)
     {
+        while (ShowCursor(false) >= 0);
         if (isRbxActive() && isEnabled)
         {
-            RECT rect = { NULL };
-            if (GetWindowRect(robloxHWND, &rect)) {
-                int sizeX = (rect.right - rect.left) / 2;
-                int sizeY = (rect.bottom - rect.top) / 2;
-                SetCursorPos(rect.left + sizeX, rect.top + sizeY);
-            }
+            fixCursor(robloxHWND);
         }
-        Sleep(1);
+        Sleep(10);
     }
 }
 
@@ -95,8 +154,12 @@ void toggle()
         {
             isEnabled = not isEnabled;
             system("cls");
-            std::cout << "Keybind: INSERT" << std::endl;
-            std::cout << "Enabled: " << (isEnabled ? "Enabled" : "Disabled");
+            std::cout << KBLU;
+            std::cout << BOLD("Roblox-HWND: ") << robloxHWND << std::endl;
+            std::cout << KYEL;
+            std::cout << BOLD("Keybind: ") << "INSERT" << std::endl;
+            std::cout << KCYN;
+            std::cout << BOLD("Enabled: ") << (isEnabled ? "Enabled" : "Disabled");
             Sleep(1000);
         }
         Sleep(25);
