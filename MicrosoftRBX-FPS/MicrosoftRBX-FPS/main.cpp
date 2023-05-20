@@ -27,6 +27,8 @@
 HWND robloxHWND;
 bool isEnabled = false;
 
+int mode = 1;
+
 std::string convert(wchar_t* lab) {
     std::wstring ws(lab);
     std::string str(ws.begin(), ws.end());
@@ -60,38 +62,54 @@ std::string getWindowTitle(HWND handle)
 
 void fixCursor(HWND handle)
 {
-    POINT p;
-    if (GetCursorPos(&p))
-    {
-        if (ScreenToClient(handle, &p))
-        {
-            RECT rect = { NULL };
-            if (GetWindowRect(robloxHWND, &rect)) {
-                int sizeX = (rect.right - rect.left);
-                int sizeY = (rect.bottom - rect.top);
-                
-                int centerX = (rect.right - rect.left) / 2;
-                int centerY = (rect.bottom - rect.top) / 2;
+    if (mode == 1)
+    { 
+        RECT rect = { NULL };
+        if (GetWindowRect(robloxHWND, &rect)) {
+            int sizeX = (rect.right - rect.left);
+            int sizeY = (rect.bottom - rect.top);
 
-                POINT realP;
-                if (GetCursorPos(&realP))
-                {
-                    // Don't judge this :(
-                    if (p.x < 30)
+            int centerX = (rect.right - rect.left) / 2;
+            int centerY = (rect.bottom - rect.top) / 2;
+
+            SetCursorPos(rect.left + centerX, rect.top + centerY);
+        }
+    }
+    else if (mode == 2)
+    {
+        POINT p;
+        if (GetCursorPos(&p))
+        {
+            if (ScreenToClient(handle, &p))
+            {
+                RECT rect = { NULL };
+                if (GetWindowRect(robloxHWND, &rect)) {
+                    int sizeX = (rect.right - rect.left);
+                    int sizeY = (rect.bottom - rect.top);
+
+                    int centerX = (rect.right - rect.left) / 2;
+                    int centerY = (rect.bottom - rect.top) / 2;
+
+                    POINT realP;
+                    if (GetCursorPos(&realP))
                     {
-                        SetCursorPos(rect.left + 100, realP.y);
-                    }
-                    else if (p.x > sizeX - 40)
-                    {
-                        SetCursorPos(rect.right - 100, realP.y);
-                    }
-                    else if (p.y < 70)
-                    {
-                        SetCursorPos(realP.x, rect.top + 100);
-                    }
-                    else if (p.y > sizeY - 40)
-                    {
-                        SetCursorPos(realP.x, rect.bottom - 100);
+                        // Don't judge this :(
+                        if (p.x < 30)
+                        {
+                            SetCursorPos(rect.left + 100, realP.y);
+                        }
+                        else if (p.x > sizeX - 40)
+                        {
+                            SetCursorPos(rect.right - 100, realP.y);
+                        }
+                        else if (p.y < 70)
+                        {
+                            SetCursorPos(realP.x, rect.top + 100);
+                        }
+                        else if (p.y > sizeY - 40)
+                        {
+                            SetCursorPos(realP.x, rect.bottom - 100);
+                        }
                     }
                 }
             }
@@ -168,12 +186,22 @@ void toggle()
 
 int main()
 {
-    SetConsoleTitleA("MicrosoftRBX-CursorFix");
-    std::thread mainThread(init);
-    std::thread checkThread(check);
-    std::thread toggleThread(toggle);
-    mainThread.join();
-    checkThread.join();
-    toggleThread.join();
-    std::cin.get();
+    std::cout << KYEL << "1. Force Center Lock\n2. Lock Border\n\n";
+    std::cout << KCYN << "Input: ";
+    std::cin >> mode;
+
+    if (mode == 1 || mode == 2)
+    {
+        SetConsoleTitleA("MicrosoftRBX-CursorFix");
+        std::thread mainThread(init);
+        std::thread checkThread(check);
+        std::thread toggleThread(toggle);
+        mainThread.join();
+        checkThread.join();
+        toggleThread.join();
+        std::cin.get();
+    }
+
+    std::cout << "Invalid option, please restart software." << std::endl;
+    return 0;
 }
