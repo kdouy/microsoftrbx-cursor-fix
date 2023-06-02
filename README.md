@@ -10,7 +10,7 @@
 
 2. Lock Border
 ```
-- This is supposed to be colored but your console isn't supported i think it only support in terminal the lastest console in microsoft <3
+- This is supposed to be colored but your console isn't supported, i think its only support in terminal the lastest console in microsoft <3
 
 ## Usage
 1. Download the file by clicking this link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix.exe
