@@ -2,17 +2,7 @@
 1. **Why is anti virus detecting it?**
 - it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
 
-2. **Why is it showing**
-```
-←[36mInput:
-
-←[33m1. Force Center Lock
-
-2. Lock Border
-```
-- This is supposed to be colored but your console isn't supported, i think its only support in terminal the lastest console in microsoft <3
-
-3. **Can you change keybind?**
+2. **Can you change keybind?**
 - The answer right now is no but i will make a keybind support in the future.
 
 ## Usage
