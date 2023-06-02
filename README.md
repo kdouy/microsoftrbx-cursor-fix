@@ -12,6 +12,9 @@
 ```
 - This is supposed to be colored but your console isn't supported, i think its only support in terminal the lastest console in microsoft <3
 
+3. **Can you change keybind?**
+- The answer right now is no but i will make a keybind support in the future.
+
 ## Usage
 1. Download the file by clicking this link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix.exe
 2. Open the file `MicrosoftRBX-CursorFix.exe`.
