@@ -8,14 +8,12 @@
 ## Usage
 1. Download links:
 `x32:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-32bit.exe
-
 `x64:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-64bit.exe
-
-3. Open the file `MicrosoftRBX-CursorFix.exe`.
-4. Open `Roblox` from Microsoft Store.
-5. Click some where on roblox to continue.
-6. Wait for the HWND scan and pop up the `Enabled` status.
-7. To toggle press `INSERT` key.
+2. Open the file `MicrosoftRBX-CursorFix.exe`.
+3. Open `Roblox` from Microsoft Store.
+4. Click some where on roblox to continue.
+5. Wait for the HWND scan and pop up the `Enabled` status.
+6. To toggle press `INSERT` key.
 
 ## Anti Cheat
 - **This application is completely harmless for `Roblox` because it has no injection or anything to touch into `Roblox` this is just keeping mouse position on the same place.**
