@@ -6,9 +6,7 @@
 - The answer right now is no but i will make a keybind support in the future.
 
 ## Usage
-1. Download links:
-`x32:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-32bit.exe
-`x64:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-64bit.exe
+1. Download link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/tag/RELEASE
 2. Open the file `MicrosoftRBX-CursorFix.exe`.
 3. Open `Roblox` from Microsoft Store.
 4. Click some where on roblox to continue.
