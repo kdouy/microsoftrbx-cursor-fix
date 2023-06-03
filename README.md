@@ -8,7 +8,9 @@
 ## Usage
 1. Download links:
 `x32:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-32bit.exe
+
 `x64:` https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/download/RELEASE/MicrosoftRBX-CursorFix-64bit.exe
+
 3. Open the file `MicrosoftRBX-CursorFix.exe`.
 4. Open `Roblox` from Microsoft Store.
 5. Click some where on roblox to continue.
