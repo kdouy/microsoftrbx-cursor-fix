@@ -1,3 +1,5 @@
+[![Github All Releases](https://img.shields.io/github/downloads/mengdeveloper/microsoftrbx-cursor-fix/total.svg)]()
+
 ## READ THIS
 1. **Why is anti virus detecting it?**
 - it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
