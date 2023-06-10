@@ -26,7 +26,7 @@
 3. **How do i uninstall MicrosoftRBX-CursorFix?**
 - Simply just by closing the application and delete it.
 
-Download Static:
+## Download Static
 [![Github All Releases](https://img.shields.io/github/downloads/mengdeveloper/microsoftrbx-cursor-fix/total.svg)]()
 
 https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/79108f58-75f3-485b-9bfe-c2f2a98e348f
