@@ -30,8 +30,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Downloads\icon.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <Text Include="_ToggleButton.txt" />
+    <Text Include="_HOW_TO_CHANGE_TOGGLE.txt" />
   </ItemGroup>
 </Project>

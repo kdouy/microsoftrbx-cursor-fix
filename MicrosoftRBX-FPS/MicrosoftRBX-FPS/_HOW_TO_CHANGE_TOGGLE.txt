@@ -1,0 +1,85 @@
+Choose a button from this list and copy paste exactly into `ToggleButton.txt`
+If there are () <- parenthesis that is just a note specifying what I'm talking about
+don't copy that part
+Example -> FORWARD_SLASH ( / ) <- Only copy the FORWARD_SLASH text
+
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+LEFT_ARROW
+RIGHT_ARROW
+DOWN_ARROW
+UP_ARROW
+F1
+F2
+F3
+F4
+F5
+F6
+F7
+F8
+F9
+F10
+F11
+F12
+DEL
+HOME
+END
+PGUP
+PGDOWN
+INSERT
+LEFT_CTRL
+RIGHT_CTRL
+LEFT_ALT
+RIGHT_ALT
+MINUS
+PLUS
+UNDERSCORE
+EQUALS
+FORWARD_SLASH ( / )
+BACK_SLASH ( \ )
+PIPE ( | )
+EXCLAMATION_MARK
+ASPERAND ( @ )
+RIGHT_ANGLE_BRACKET ( > )
+LEFT_ANGLE_BRACKET ( < )
+UP_ANGLE_BRACKET ( ^ )
+SEMICOLON
+COLON
+SINGLE_QUOTE
+DOUBLE_QUOTE
+PERIOD
+COMMA
+RIGHT_BRACKET ( ] )
+LEFT_BRACKET ( [ )
+RIGHT_CURLY ( } )
+LEFT_CURLY ( { )
+QUESTION_MARK ( ? )
+HASHTAG
+DOLLAR_SIGN
+PERCENT_SIGN
+AMPERSAND ( & )
+ASTERISK ( * )
