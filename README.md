@@ -3,7 +3,7 @@
 - it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
 
 2. **Can you change keybind?**
-- The answer right now is no but i will make a keybind support in the future.
+- Yes! Go to `microsoftrbx-cursor-fix\MicrosoftRBX-FPS\MicrosoftRBX-FPS` then read `_HOW_TO_CHANGE_TOGGLE.txt` for instructions
 
 ## Usage
 1. Download link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/tag/RELEASE
@@ -11,14 +11,14 @@
 3. Open `Roblox` from Microsoft Store.
 4. Click some where on roblox to continue.
 5. Wait for the HWND scan and pop up the `Enabled` status.
-6. To toggle press `INSERT` key.
+6. To toggle press the set toggle key.
 
 ## Anti Cheat
 - **This application is completely harmless for `Roblox` because it has no injection or anything to touch into `Roblox` this is just keeping mouse position on the same place.**
 
 ## FAQ
 1. **How to turn it on or off?**
-- Press `INSERT` key to turn on and off.
+- Press set toggle key to turn on and off.
 
 2. **Why is it stopped working?**
 - Maybe you should reopen it, might be some issue or bug.
