@@ -27,4 +27,4 @@
 - Simply just by closing the application and delete it.
 
 ## Download Static
-[![Github All Releases](https://img.shields.io/github/downloads/mengdeveloper/microsoftrbx-cursor-fix/total.svg)]()
+[![Github All Releases](https://img.shields.io/github/downloads/mengdeveloper/microsoftrbx-cursor-fix/total.svg?style=for-the-badge)]()
