@@ -1,3 +1,5 @@
+## btw im too lazy to update keybind so it wont work i will update soon cuz i pulled a merge request with haloxx
+
 ## READ THIS
 1. **Why is anti virus detecting it?**
 - it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
