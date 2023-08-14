@@ -46,6 +46,9 @@ bool isEnabled = false;
 
 int mode = 1;
 
+bool isRightClickPressed = false;
+POINT rememberedCursorPos = { 0, 0 };
+
 std::string convert(wchar_t* lab) {
     std::wstring ws(lab);
     std::string str(ws.begin(), ws.end());
@@ -111,21 +114,93 @@ void fixCursor(HWND handle)
                     if (GetCursorPos(&realP))
                     {
                         // Don't judge this :(
-                        if (p.x < 30)
+                        if (p.x < 1)
                         {
-                            SetCursorPos(rect.left + 100, realP.y);
+                            SetCursorPos(rect.left + 10, realP.y);
                         }
-                        else if (p.x > sizeX - 40)
+                        else if (p.x > sizeX - 18)
                         {
-                            SetCursorPos(rect.right - 100, realP.y);
+                            SetCursorPos(rect.right - 10, realP.y);
                         }
-                        else if (p.y < 70)
+                        else if (p.y < 35)
                         {
-                            SetCursorPos(realP.x, rect.top + 100);
+                            SetCursorPos(realP.x, rect.top + 30);
                         }
-                        else if (p.y > sizeY - 40)
+                        else if (p.y > sizeY - 10)
                         {
-                            SetCursorPos(realP.x, rect.bottom - 100);
+                            SetCursorPos(realP.x, rect.bottom - 10);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else if (mode == 3)
+    {
+        if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
+        {
+            if (!isRightClickPressed)
+            {
+                isRightClickPressed = true;
+                GetCursorPos(&rememberedCursorPos);
+            }
+        }
+        else
+        {
+            if (isRightClickPressed)
+            {
+                SetCursorPos(rememberedCursorPos.x, rememberedCursorPos.y);
+                isRightClickPressed = false;
+            }
+        }
+
+        POINT p;
+        if (GetCursorPos(&p))
+        {
+            if (ScreenToClient(handle, &p))
+            {
+                RECT rect = { NULL };
+                if (GetWindowRect(robloxHWND, &rect)) {
+                    int sizeX = (rect.right - rect.left);
+                    int sizeY = (rect.bottom - rect.top);
+
+                    POINT realP;
+                    if (GetCursorPos(&realP))
+                    {
+                        if (isRightClickPressed && (realP.x != rememberedCursorPos.x || realP.y != rememberedCursorPos.y))
+                        {
+                            int adjustedX = realP.x;
+                            int adjustedY = realP.y;
+
+                            if (adjustedX < rect.left)
+                                adjustedX = rect.left;
+                            else if (adjustedX > rect.right)
+                                adjustedX = rect.right;
+                            if (adjustedY < rect.top)
+                                adjustedY = rect.top;
+                            else if (adjustedY > rect.bottom)
+                                adjustedY = rect.bottom;
+
+                            SetCursorPos(adjustedX, adjustedY);
+                        }
+                        else if (!isRightClickPressed)
+                        {
+                            if (p.x < 1)
+                            {
+                                SetCursorPos(rect.left + 10, realP.y);
+                            }
+                            else if (p.x > sizeX - 18)
+                            {
+                                SetCursorPos(rect.right - 10, realP.y);
+                            }
+                            else if (p.y < 35)
+                            {
+                                SetCursorPos(realP.x, rect.top + 30);
+                            }
+                            else if (p.y > sizeY - 10)
+                            {
+                                SetCursorPos(realP.x, rect.bottom - 10);
+                            }
                         }
                     }
                 }
@@ -551,11 +626,11 @@ void toggle()
 
 int main()
 {
-    std::cout << "1. Force Center Lock\n2. Lock Border\n\n";
+    std::cout << "1. Force Center Lock\n2. Lock Border\n3. Remember Last Cursor Position Upon Dragging w/ Lock Border\n   (Recommended for fixing the annoying cursor teleportation bug when right-clicking and dragging the mouse cursor)\n\n";
     std::cout << "Input: ";
     std::cin >> mode;
 
-    if (mode == 1 || mode == 2)
+    if (mode == 1 || mode == 2 || mode == 3)
     {
         SetConsoleTitleA("MicrosoftRBX-CursorFix");
         std::thread mainThread(init);
