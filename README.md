@@ -1,4 +1,4 @@
-## btw im too lazy to update keybind so it wont work i will update soon cuz i pulled a merge request with haloxx
+## Keybind is now changable, Added Right Hold Position Fix.
 
 ## READ THIS
 1. **Why is anti virus detecting it?**
