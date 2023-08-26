@@ -35,4 +35,4 @@
 
 ## Team
 
-Our contributors [contributors](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/graphs/contributors).
+> Our contributors [contributors](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/graphs/contributors).
