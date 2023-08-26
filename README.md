@@ -2,7 +2,7 @@
 
 > A program to fix Microsoft Roblox mouse/cursor.
 
-![PREVIEW](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/781ad057-0449-4a81-9d93-1e6542c2a708)
+![Preview](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/638f6ab0-a671-4973-b6de-1f1a4c127783)
 
 ## FAQ
 
