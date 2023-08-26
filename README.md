@@ -5,6 +5,7 @@
 ![PREVIEW](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/781ad057-0449-4a81-9d93-1e6542c2a708)
 
 ## FAQ
+
 1. **Why is anti virus detecting it?**
 > it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
 
@@ -21,6 +22,7 @@
 > Simply just by closing the application and delete it.
 
 ## Usage
+
 > 1. Download link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/tag/RELEASE
 > 2. Open the file `MicrosoftRBX-CursorFix.exe`.
 > 3. Open `Roblox` from Microsoft Store.
@@ -30,3 +32,7 @@
 
 ## Anti Cheat
 > **This application is completely harmless for `Roblox` because it has no injection or anything to touch into `Roblox` this is just keeping mouse position on the same place.**
+
+## Team
+
+Our contributors [contributors](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/graphs/contributors).
