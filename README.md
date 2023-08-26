@@ -2,6 +2,8 @@
 
 > A program to fix Microsoft Roblox mouse/cursor.
 
+![PREVIEW](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/781ad057-0449-4a81-9d93-1e6542c2a708)
+
 ## FAQ
 1. **Why is anti virus detecting it?**
 > it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
