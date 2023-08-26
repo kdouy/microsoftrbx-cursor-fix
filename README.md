@@ -36,3 +36,5 @@
 ## Team
 
 Our contributors [contributors](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/graphs/contributors).
+
+[![All Contributors](https://img.shields.io/github/all-contributors/mengdeveloper/microsoftrbx-cursor-fix?color=ee8449&style=flat-square)](#contributors)
