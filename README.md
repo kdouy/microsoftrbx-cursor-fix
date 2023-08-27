@@ -21,6 +21,10 @@
 5. **How do i uninstall MicrosoftRBX-CursorFix?**
 > Simply just by closing the application and delete it.
 
+6. **Why is it saying "The code execution cannot proceed because ...."?
+> ![image](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/02d0a4f9-ac60-49a1-9d5a-80ece15dbc65)
+> Donwload and Install this: https://www.microsoft.com/en-sg/download/details.aspx?id=48145
+
 ## Usage
 
 > 1. Download link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/tag/RELEASE
