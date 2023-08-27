@@ -23,7 +23,7 @@
 
 6. **Why is it saying "The code execution cannot proceed because ...." ?**
 > ![image](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/02d0a4f9-ac60-49a1-9d5a-80ece15dbc65)
-> Download and Install this: https://www.microsoft.com/en-sg/download/details.aspx?id=48145
+> Download and Install this: [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-sg/download/details.aspx?id=48145)
 
 ## Usage
 
