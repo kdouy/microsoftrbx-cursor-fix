@@ -131,10 +131,10 @@ void fixCursor(HWND handle)
         {
             confineRect = windowRect;
 
-            confineRect.left += 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.top += 34; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
-            confineRect.right -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.bottom -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.left += 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.top += 42; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
+            confineRect.right -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.bottom -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
 
             BOOL isFullscreen = IsFullscreen(robloxHWND);
 
@@ -158,10 +158,10 @@ void fixCursor(HWND handle)
         {
             confineRect = windowRect;
 
-            confineRect.left += 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.top += 34; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
-            confineRect.right -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.bottom -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.left += 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.top += 42; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
+            confineRect.right -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.bottom -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
 
             BOOL isFullscreen = IsFullscreen(robloxHWND);
 
