@@ -80,6 +80,33 @@ std::string getWindowTitle(HWND handle)
     return "NULL";
 }
 
+BOOL IsFullscreen(HWND hwnd)
+{
+    RECT windowRect;
+    RECT screenRect;
+
+    if (GetWindowRect(hwnd, &windowRect))
+    {
+        screenRect.left = 0;
+        screenRect.top = 0;
+        screenRect.right = GetSystemMetrics(SM_CXSCREEN);
+        screenRect.bottom = GetSystemMetrics(SM_CYSCREEN);
+
+        if (EqualRect(&windowRect, &screenRect))
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 void fixCursor(HWND handle)
 {
     if (mode == 1)
@@ -97,114 +124,86 @@ void fixCursor(HWND handle)
     }
     else if (mode == 2)
     {
-        POINT p;
-        if (GetCursorPos(&p))
+        RECT confineRect;
+        RECT windowRect;
+
+        if (GetWindowRect(robloxHWND, &windowRect))
         {
-            if (ScreenToClient(handle, &p))
+            confineRect = windowRect;
+
+            confineRect.left += 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.top += 34; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
+            confineRect.right -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.bottom -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+
+            BOOL isFullscreen = IsFullscreen(robloxHWND);
+
+            if (isFullscreen)
             {
-                RECT rect = { NULL };
-                if (GetWindowRect(robloxHWND, &rect)) {
-                    int sizeX = (rect.right - rect.left);
-                    int sizeY = (rect.bottom - rect.top);
-
-                    int centerX = (rect.right - rect.left) / 2;
-                    int centerY = (rect.bottom - rect.top) / 2;
-
-                    POINT realP;
-                    if (GetCursorPos(&realP))
-                    {
-                        // Don't judge this :(
-                        if (p.x < 1)
-                        {
-                            SetCursorPos(rect.left + 10, realP.y);
-                        }
-                        else if (p.x > sizeX - 18)
-                        {
-                            SetCursorPos(rect.right - 10, realP.y);
-                        }
-                        else if (p.y < 35)
-                        {
-                            SetCursorPos(realP.x, rect.top + 30);
-                        }
-                        else if (p.y > sizeY - 10)
-                        {
-                            SetCursorPos(realP.x, rect.bottom - 10);
-                        }
-                    }
-                }
+                confineRect.left = 1; // 1 feels better than 0 to me
+                confineRect.top = 4; // 4 was the last amount of pixels that did not trigger the title bar in fullscreen, using 3 or lower made the title bar show up.
+                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1; // 1 feels better than 0 to me
+                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1; // 1 was the last amount of pixels that did not trigger the taskbar in fullscreen, using 0 made the taskbar show up.
             }
+
+            ClipCursor(&confineRect);
         }
     }
     else if (mode == 3)
     {
-        if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
+        RECT confineRect;
+        RECT windowRect;
+
+        if (GetWindowRect(robloxHWND, &windowRect))
         {
-            if (!isRightClickPressed)
+            confineRect = windowRect;
+
+            confineRect.left += 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.top += 34; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
+            confineRect.right -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.bottom -= 8; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+
+            BOOL isFullscreen = IsFullscreen(robloxHWND);
+
+            if (isFullscreen)
             {
-                isRightClickPressed = true;
-                GetCursorPos(&rememberedCursorPos);
+                confineRect.left = 1; // 1 feels better than 0 to me
+                confineRect.top = 4; // 4 was the last amount of pixels that did not trigger the title bar in fullscreen, using 3 or lower made the title bar show up.
+                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1; // 1 feels better than 0 to me
+                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1; // 1 was the last amount of pixels that did not trigger the taskbar in fullscreen, using 0 made the taskbar show up.
             }
-        }
-        else
-        {
-            if (isRightClickPressed)
+
+            if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
             {
-                SetCursorPos(rememberedCursorPos.x, rememberedCursorPos.y);
-                isRightClickPressed = false;
+                if (!isRightClickPressed)
+                {
+                    isRightClickPressed = true;
+                    GetCursorPos(&rememberedCursorPos);
+                }
             }
-        }
-
-        POINT p;
-        if (GetCursorPos(&p))
-        {
-            if (ScreenToClient(handle, &p))
+            else
             {
-                RECT rect = { NULL };
-                if (GetWindowRect(robloxHWND, &rect)) {
-                    int sizeX = (rect.right - rect.left);
-                    int sizeY = (rect.bottom - rect.top);
+                if (isRightClickPressed)
+                {
+                    SetCursorPos(rememberedCursorPos.x, rememberedCursorPos.y);
+                    isRightClickPressed = false;
+                }
+            }
 
-                    POINT realP;
-                    if (GetCursorPos(&realP))
-                    {
-                        if (isRightClickPressed && (realP.x != rememberedCursorPos.x || realP.y != rememberedCursorPos.y))
-                        {
-                            int adjustedX = realP.x;
-                            int adjustedY = realP.y;
-
-                            if (adjustedX < rect.left)
-                                adjustedX = rect.left;
-                            else if (adjustedX > rect.right)
-                                adjustedX = rect.right;
-                            if (adjustedY < rect.top)
-                                adjustedY = rect.top;
-                            else if (adjustedY > rect.bottom)
-                                adjustedY = rect.bottom;
-
-                            SetCursorPos(adjustedX, adjustedY);
-                        }
-                        else if (!isRightClickPressed)
-                        {
-                            if (p.x < 1)
-                            {
-                                SetCursorPos(rect.left + 10, realP.y);
-                            }
-                            else if (p.x > sizeX - 18)
-                            {
-                                SetCursorPos(rect.right - 10, realP.y);
-                            }
-                            else if (p.y < 35)
-                            {
-                                SetCursorPos(realP.x, rect.top + 30);
-                            }
-                            else if (p.y > sizeY - 10)
-                            {
-                                SetCursorPos(realP.x, rect.bottom - 10);
-                            }
-                        }
+            POINT p;
+            if (GetCursorPos(&p))
+            {
+                if (ScreenToClient(handle, &p))
+                {
+                    RECT rect = { NULL };
+                    if (GetWindowRect(robloxHWND, &rect)) {
+                        int sizeX = (rect.right - rect.left);
+                        int sizeY = (rect.bottom - rect.top);
                     }
                 }
             }
+
+            ClipCursor(&confineRect);
         }
     }
 }
