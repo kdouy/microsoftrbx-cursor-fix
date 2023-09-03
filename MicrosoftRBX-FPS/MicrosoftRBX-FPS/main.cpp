@@ -131,19 +131,19 @@ void fixCursor(HWND handle)
         {
             confineRect = windowRect;
 
-            confineRect.left += 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.top += 42; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
-            confineRect.right -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.bottom -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.left += 10;
+            confineRect.top += 42;
+            confineRect.right -= 10;
+            confineRect.bottom -= 10;
 
             BOOL isFullscreen = IsFullscreen(robloxHWND);
 
             if (isFullscreen)
             {
-                confineRect.left = 1; // 1 feels better than 0 to me
-                confineRect.top = 4; // 4 was the last amount of pixels that did not trigger the title bar in fullscreen, using 3 or lower made the title bar show up.
-                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1; // 1 feels better than 0 to me
-                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1; // 1 was the last amount of pixels that did not trigger the taskbar in fullscreen, using 0 made the taskbar show up.
+                confineRect.left = 1;
+                confineRect.top = 4;
+                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1;
+                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1;
             }
 
             ClipCursor(&confineRect);
@@ -158,19 +158,19 @@ void fixCursor(HWND handle)
         {
             confineRect = windowRect;
 
-            confineRect.left += 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.top += 42; // I used 34 here because it felt like the right amount to confine the mouse so it does not go to the title bar. With this, the mouse cursor gets confined exclusively to the game window.
-            confineRect.right -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
-            confineRect.bottom -= 10; // Last limit to not trigger the window resize in my case. Will change it if its not enough.
+            confineRect.left += 10;
+            confineRect.top += 42;
+            confineRect.right -= 10;
+            confineRect.bottom -= 10;
 
             BOOL isFullscreen = IsFullscreen(robloxHWND);
 
             if (isFullscreen)
             {
-                confineRect.left = 1; // 1 feels better than 0 to me
-                confineRect.top = 4; // 4 was the last amount of pixels that did not trigger the title bar in fullscreen, using 3 or lower made the title bar show up.
-                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1; // 1 feels better than 0 to me
-                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1; // 1 was the last amount of pixels that did not trigger the taskbar in fullscreen, using 0 made the taskbar show up.
+                confineRect.left = 1;
+                confineRect.top = 4;
+                confineRect.right = GetSystemMetrics(SM_CXSCREEN) - 1;
+                confineRect.bottom = GetSystemMetrics(SM_CYSCREEN) - 1;
             }
 
             if (GetAsyncKeyState(VK_RBUTTON) & 0x8000)
