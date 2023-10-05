@@ -110,16 +110,36 @@ BOOL IsFullscreen(HWND hwnd)
 void fixCursor(HWND handle)
 {
     if (mode == 1)
-    { 
-        RECT rect = { NULL };
-        if (GetWindowRect(robloxHWND, &rect)) {
-            int sizeX = (rect.right - rect.left);
-            int sizeY = (rect.bottom - rect.top);
+    {
+        RECT confineRect;
+        RECT windowRect;
 
-            int centerX = (rect.right - rect.left) / 2;
-            int centerY = (rect.bottom - rect.top) / 2;
+        if (GetWindowRect(robloxHWND, &windowRect))
+        {
+            confineRect = windowRect;
 
-            SetCursorPos(rect.left + centerX, rect.top + centerY);
+            int windowCenterX = (windowRect.left + windowRect.right) / 2;
+            int windowCenterY = (windowRect.top + windowRect.bottom) / 2;
+
+            confineRect.left = windowCenterX - 1;
+            confineRect.top = windowCenterY - 1;
+            confineRect.right = windowCenterX + 1;
+            confineRect.bottom = windowCenterY + 1;
+
+            BOOL isFullscreen = IsFullscreen(robloxHWND);
+
+            if (isFullscreen)
+            {
+                int fullscreenCenterX = GetSystemMetrics(SM_CXSCREEN) / 2;
+                int fullscreenCenterY = GetSystemMetrics(SM_CYSCREEN) / 2;
+                
+                confineRect.left = fullscreenCenterX - 1;
+                confineRect.top = fullscreenCenterY - 1;
+                confineRect.right = fullscreenCenterX + 1;
+                confineRect.bottom = fullscreenCenterY + 1;
+            }
+
+            ClipCursor(&confineRect);
         }
     }
     else if (mode == 2)
