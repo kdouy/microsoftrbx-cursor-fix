@@ -26,6 +26,7 @@
 > Download and Install this: [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-sg/download/details.aspx?id=48145)
 
 > [!NOTE]
+> Usage
 > 1. Download link: https://github.com/mengdeveloper/microsoftrbx-cursor-fix/releases/tag/RELEASE
 > 2. Open the file `MicrosoftRBX-CursorFix.exe`.
 > 3. Open `Roblox` from Microsoft Store.
