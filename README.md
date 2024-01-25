@@ -4,23 +4,17 @@
 
 ![Preview](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/638f6ab0-a671-4973-b6de-1f1a4c127783)
 
-## FAQ
-
+> [!NOTE]
 1. **Why is anti virus detecting it?**
 > it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
-
 2. **Can you change keybind?**
 > Yes! Go to `microsoftrbx-cursor-fix\MicrosoftRBX-FPS\MicrosoftRBX-FPS` then read `_HOW_TO_CHANGE_TOGGLE.txt` for instructions
-
 3. **How to turn it on or off?**
 > Press set toggle key to turn on and off.
-
 4. **Why is it stopped working?**
 > Maybe you should reopen it, might be some issue or bug.
-
 5. **How do i uninstall MicrosoftRBX-CursorFix?**
 > Simply just by closing the application and delete it.
-
 6. **Why is it saying "The code execution cannot proceed because ...." ?**
 > ![image](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/02d0a4f9-ac60-49a1-9d5a-80ece15dbc65)
 > Download and Install this: [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-sg/download/details.aspx?id=48145)
