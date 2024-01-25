@@ -4,7 +4,8 @@
 
 ![Preview](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/assets/53615275/638f6ab0-a671-4973-b6de-1f1a4c127783)
 
-> [!NOTE]
+## FAQ
+
 > 1. **Why is anti virus detecting it?**
 > it doesn't have any virus here, the reason with so many of flags (27) is because the application changes the mouse position thats why window detect this as a virus!
 > 2. **Can you change keybind?**
