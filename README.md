@@ -40,3 +40,5 @@
 ## Team
 
 > Our contributors [contributors](https://github.com/mengdeveloper/microsoftrbx-cursor-fix/graphs/contributors).
+
+[![Github All Releases](https://img.shields.io/github/downloads/kdouy/microsoftrbx-cursor-fix/total.svg)]()
